@@ -24,13 +24,13 @@ interface AppPage {
 const appPages: AppPage[] = [
   {
     title: 'Ajouter Annonce',
-    url: '/folder/Inbox',
+    url: '/AjouteAnnonce',
     iosIcon: mailOutline,
     mdIcon: mailSharp
   },
   {
     title: 'Liste Annonces',
-    url: '/folder/Outbox',
+    url: '/ListeAnnonce',
     iosIcon: paperPlaneOutline,
     mdIcon: paperPlaneSharp
   },
