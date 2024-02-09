@@ -18,6 +18,7 @@ import Header from '../components/Header';
 import './main.css';
 import axios from 'axios';
 import { useHistory } from 'react-router';
+import Menu from '../components/Menu';
 
 function Example() {
   const [annonces , setAnnonces] = useState([]);
@@ -39,7 +40,6 @@ function Example() {
   return (
     <IonPage>
       <Header title="Liste Annonce"/>
-
       <IonContent fullscreen>
           
               <IonCard>

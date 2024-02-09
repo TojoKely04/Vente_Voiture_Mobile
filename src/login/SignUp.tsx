@@ -40,7 +40,7 @@ const Login = () => {
             role: 'USER'
           });
           localStorage.setItem("token",response.data);
-          history.push('/ListeAnnonce');
+          history.push('/Login');
         } catch (error) {
           console.error('Erreur lors de la soumission des données:', error);
         }
