@@ -37,9 +37,6 @@ const App: React.FC = () => {
         <IonSplitPane contentId="main">
           <Menu />
           <IonRouterOutlet id="main">
-            {/* <Route path="/" exact={true}>
-              <Redirect to="/ListeAnnonce" />
-            </Route> */}
             <Route path="/ListeAnnonce" exact={true}>
               <Annonce />
             </Route>
@@ -53,7 +50,7 @@ const App: React.FC = () => {
             <Route path="/SignUp" exact={true}>
               <SignUp />
             </Route>
-            <Route path="/Details" exact={true}>
+            <Route path="/Detail/:id" exact={true}>
               <Details />
             </Route>
             
