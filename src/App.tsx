@@ -3,9 +3,6 @@ import { IonReactRouter } from '@ionic/react-router';
 import { Redirect, Route } from 'react-router-dom';
 import Menu from './components/Menu';
 import AjoutAnnonce from './pages/AjoutAnnonce';
-import ListeAnnonce from './pages/ListeAnnonce';
-
-
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -25,6 +22,11 @@ import '@ionic/react/css/display.css';
 
 /* Theme variables */
 import './theme/variables.css';
+import Annonce from './annonce/Annonce';
+import Login from './login/Login';
+import SignUp from './login/SignUp';
+import Details from './annonce/Details';
+
 
 setupIonicReact();
 
@@ -35,14 +37,24 @@ const App: React.FC = () => {
         <IonSplitPane contentId="main">
           <Menu />
           <IonRouterOutlet id="main">
-            <Route path="/" exact={true}>
+            {/* <Route path="/" exact={true}>
               <Redirect to="/ListeAnnonce" />
-            </Route>
+            </Route> */}
             <Route path="/ListeAnnonce" exact={true}>
-              <ListeAnnonce />
+              <Annonce />
             </Route>
             <Route path="/AjouteAnnonce" exact={true}>
               <AjoutAnnonce />
+            </Route>
+            <Route path="/Login" exact={true}>
+              <Login />
+            </Route>
+
+            <Route path="/SignUp" exact={true}>
+              <SignUp />
+            </Route>
+            <Route path="/Details" exact={true}>
+              <Details />
             </Route>
             
           </IonRouterOutlet>
