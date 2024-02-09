@@ -1,20 +1,47 @@
 import React from 'react';
-import { IonIcon , IonButton, IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle } from '@ionic/react';
-import { star } from 'ionicons/icons';
+import {
+  IonCard,
+  IonCardContent,
+  IonCardHeader,
+  IonCardSubtitle,
+  IonCardTitle,
+  IonItem,
+  IonLabel,
+  IonList,
+  IonThumbnail,
+  IonContent,
+  IonPage,
+  IonButton,
+} from '@ionic/react';
+import Header from '../components/Header';
+import './main.css';
 
-function Card() {
+function Example() {
   return (
-    <IonCard>
-      <IonCardHeader>
-        <IonCardTitle>Card Title</IonCardTitle>
-        <IonCardSubtitle>Card Subtitle</IonCardSubtitle>
-      </IonCardHeader>
+    <IonPage>
+      <Header title="Liste Annonce"/>
 
-      <IonCardContent>Here's a small text description for the card content. Nothing more, nothing less.</IonCardContent>
-      <IonButton style={{marginLeft:'275px'}} size='small'>
-      <IonIcon slot="icon-only"></IonIcon>
-      </IonButton>
-    </IonCard>
+      <IonContent fullscreen>
+          <IonCard>
+          <IonCardHeader>
+            <IonCardTitle>Liste Annonces</IonCardTitle>
+          </IonCardHeader>
+          <IonCardContent>
+            <IonList>
+              <IonItem>
+                <IonThumbnail slot="start">
+                  <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/thumbnail.svg" />
+                </IonThumbnail>
+                <IonLabel>Item</IonLabel>
+                <IonButton fill="outline">Details</IonButton>
+              </IonItem>
+            </IonList>
+          </IonCardContent>
+        </IonCard>
+      </IonContent>
+      
+    </IonPage>
+    
   );
 }
-export default Card;
+export default Example;
