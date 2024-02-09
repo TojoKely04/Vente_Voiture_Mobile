@@ -67,13 +67,7 @@ const App: React.FC = () => {
           </IonRouterOutlet>
         </IonSplitPane>
       </IonReactRouter>
-      <IonRefresher slot="fixed" onIonRefresh={doRefresh}>
-      <IonRefresherContent
-        pullingText="Tirez pour rafraîchir"
-        refreshingSpinner="circles"
-        refreshingText="Rafraîchissement en cours...">
-      </IonRefresherContent>
-    </IonRefresher>
+     
     </IonApp>
   );
 };
