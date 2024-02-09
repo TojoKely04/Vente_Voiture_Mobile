@@ -1,4 +1,5 @@
 import {
+  IonButton,
   IonContent,
   IonIcon,
   IonItem,
@@ -10,7 +11,7 @@ import {
   IonNote,
 } from '@ionic/react';
 
-import { useLocation } from 'react-router-dom';
+import { useHistory, useLocation } from 'react-router-dom';
 import { archiveOutline, archiveSharp, bookmarkOutline, heartOutline, heartSharp, mailOutline, mailSharp, paperPlaneOutline, paperPlaneSharp, trashOutline, trashSharp, warningOutline, warningSharp } from 'ionicons/icons';
 import './Menu.css';
 
@@ -25,8 +26,8 @@ const appPages: AppPage[] = [
   {
     title: 'Ajouter Annonce',
     url: '/AjouteAnnonce',
-    iosIcon: mailOutline,
-    mdIcon: mailSharp
+    iosIcon: paperPlaneOutline,
+    mdIcon: paperPlaneSharp
   },
   {
     title: 'Liste Annonces',
@@ -40,13 +41,19 @@ const labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
 
 const Menu: React.FC = () => {
   const location = useLocation();
-
+  const history = useHistory();
+  const handleLogout = () => {
+    console.log("deco");
+    localStorage.removeItem('token');
+    // Rediriger vers la page de connexion
+    history.push('/Login');
+  };
   return (
     <IonMenu contentId="main" type="overlay">
       <IonContent>
         <IonList id="inbox-list">
           <IonListHeader>Voiture</IonListHeader>
-          <IonNote>hi@ionicframework.com</IonNote>
+          <IonNote>Site de vente de voiture</IonNote>
           {appPages.map((appPage, index) => {
             return (
               <IonMenuToggle key={index} autoHide={false}>
@@ -57,6 +64,7 @@ const Menu: React.FC = () => {
               </IonMenuToggle>
             );
           })}
+          <IonButton expand="block" onClick={handleLogout}>Se Deconnecter</IonButton>
         </IonList>
 
         
