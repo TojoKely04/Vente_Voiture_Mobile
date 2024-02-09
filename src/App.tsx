@@ -1,4 +1,4 @@
-import { IonApp, IonRouterOutlet, IonSplitPane, setupIonicReact } from '@ionic/react';
+import { IonApp, IonRefresher, IonRefresherContent, IonRouterOutlet, IonSplitPane, setupIonicReact } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 import { Redirect, Route } from 'react-router-dom';
 import Menu from './components/Menu';
@@ -31,6 +31,13 @@ import Details from './annonce/Details';
 setupIonicReact();
 
 const App: React.FC = () => {
+  const doRefresh = (event: CustomEvent) => {
+    // Mettez ici votre logique de rafraîchissement des données
+    setTimeout(() => {
+      console.log('Données rafraîchies');
+      event.detail.complete(); // Indique à Ionic que le rafraîchissement est terminé
+    }, 2000); // Exemple d'une attente de 2 secondes avant de compléter le rafraîchissement
+  };
   return (
     <IonApp>
       <IonReactRouter>
@@ -46,6 +53,9 @@ const App: React.FC = () => {
             <Route path="/Login" exact={true}>
               <Login />
             </Route>
+            <Route path="/" exact={true}>
+              <Login />
+            </Route>
 
             <Route path="/SignUp" exact={true}>
               <SignUp />
@@ -57,6 +67,13 @@ const App: React.FC = () => {
           </IonRouterOutlet>
         </IonSplitPane>
       </IonReactRouter>
+      <IonRefresher slot="fixed" onIonRefresh={doRefresh}>
+      <IonRefresherContent
+        pullingText="Tirez pour rafraîchir"
+        refreshingSpinner="circles"
+        refreshingText="Rafraîchissement en cours...">
+      </IonRefresherContent>
+    </IonRefresher>
     </IonApp>
   );
 };
