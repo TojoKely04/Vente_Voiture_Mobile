@@ -6,8 +6,8 @@ import { useHistory } from "react-router";
 
 const Login = () => {
   const history = useHistory();
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+    const [email, setEmail] = useState('Tojonirina@gmail.com');
+    const [password, setPassword] = useState('ok');
 
     // Handler for email input change
     const handleEmailChange = (event) => {
@@ -67,7 +67,7 @@ const Login = () => {
                   <IonLabel position="floating"> Email</IonLabel>
                   <IonInput
                       type="email"
-                      value="Tojonirina@gmail.com"
+                      value={email}
                       onIonChange={handleEmailChange}
                       >
 
@@ -82,7 +82,7 @@ const Login = () => {
                   <IonLabel position="floating"> PassWord</IonLabel>
                   <IonInput
                       type="password"
-                      value="ok"
+                      value={password}
                   onIonChange={handlePasswordChange}
                       >
                   </IonInput>
