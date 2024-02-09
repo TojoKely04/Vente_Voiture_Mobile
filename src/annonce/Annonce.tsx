@@ -13,6 +13,8 @@ import {
   IonPage,
   IonButton,
   IonRouterLink,
+  IonRefresher,
+  IonRefresherContent,
 } from '@ionic/react';
 import Header from '../components/Header';
 import './main.css';
@@ -21,6 +23,13 @@ import { useHistory } from 'react-router';
 import Menu from '../components/Menu';
 
 function Example() {
+  function handleRefresh(event: CustomEvent<RefresherEventDetail>) {
+    setTimeout(() => {
+      // Any calls to load data go here
+      event.detail.complete();
+    }, 2000);
+  }
+
   const [annonces , setAnnonces] = useState([]);
   const token = localStorage.getItem('token');
   const fetchElements = async () => {
@@ -41,7 +50,9 @@ function Example() {
     <IonPage>
       <Header title="Liste Annonce"/>
       <IonContent fullscreen>
-          
+          <IonRefresher slot="fixed" onIonRefresh={handleRefresh}>
+          <IonRefresherContent></IonRefresherContent>
+        </IonRefresher>
               <IonCard>
               <IonCardHeader>
                 <IonCardTitle>Liste Annonces</IonCardTitle>
