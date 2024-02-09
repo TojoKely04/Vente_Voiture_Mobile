@@ -1,4 +1,4 @@
-import { IonCol, IonHeader, IonRow, IonText, IonTitle, IonToolbar , IonButton, IonIcon, IonItem, IonLabel, IonInput, IonGrid, IonContent, IonPage } from "@ionic/react";
+import { IonCol, IonHeader, IonRow, IonText, IonTitle, IonToolbar , IonButton, IonIcon, IonItem, IonLabel, IonInput, IonGrid, IonContent, IonPage, IonAlert } from "@ionic/react";
 import { personCircle } from "ionicons/icons";
 import axios from "axios";
 import { useState } from "react";
@@ -36,7 +36,11 @@ const Login = () => {
         history.push('/ListeAnnonce');
         // Redirect user after successful login or perform other actions
         } catch (error) {
-        console.error('Error during login:', error);
+            <IonAlert
+                header="Erreur"
+                message="Mot De Passe Incorrect"
+                buttons={['Ok']}
+            ></IonAlert>
         }
     };
 
@@ -63,7 +67,7 @@ const Login = () => {
                   <IonLabel position="floating"> Email</IonLabel>
                   <IonInput
                       type="email"
-                      value={email}
+                      value="Tojonirina@gmail.com"
                       onIonChange={handleEmailChange}
                       >
 
@@ -78,7 +82,7 @@ const Login = () => {
                   <IonLabel position="floating"> PassWord</IonLabel>
                   <IonInput
                       type="password"
-                      value={password}
+                      value="ok"
                   onIonChange={handlePasswordChange}
                       >
                   </IonInput>

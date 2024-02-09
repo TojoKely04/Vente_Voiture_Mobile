@@ -70,7 +70,7 @@ const Page: React.FC = () => {
       },
       prix: '',
       images: '',
-      datePublication: '',
+      datePublication: '2023',
       kilometrage: ''
     });
 
@@ -83,7 +83,6 @@ const Page: React.FC = () => {
       try {
         console.log(formData);
         const response = await axios.post('https://ventevoitureback-production.up.railway.app/annonces/'+token, formData);
-        console.log('Réponse de l\'API:', response.data);
         // Réinitialiser le formulaire après l'envoi réussi si nécessaire
         setFormData({
           nom: '',
@@ -107,7 +106,7 @@ const Page: React.FC = () => {
           },
           prix: '',
           images: '',
-          datePublication: '',
+          datePublication: '2023',
           kilometrage: ''
         });
       } catch (error) {

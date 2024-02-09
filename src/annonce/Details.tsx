@@ -3,6 +3,7 @@ import { IonButton, IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, Ion
 import Header from '../components/Header';
 import { useParams } from 'react-router';
 import axios from 'axios';
+import Menu from '../components/Menu';
 
 function Details() {
   const { id } = useParams();
